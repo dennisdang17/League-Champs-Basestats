@@ -1,6 +1,5 @@
+from best_champ_stat import best_champ_for_stat
 from pytest_bdd import scenarios, when, then
-
-import best_stat
 import pytest
 
 scenarios('/mnt/c/Users/denni/Documents/Code/DeployingWorking/League-Champs-Basestats/league_champion.feature')
@@ -8,10 +7,10 @@ scenarios('/mnt/c/Users/denni/Documents/Code/DeployingWorking/League-Champs-Base
 @pytest.fixture
 @when('my API is queried with "<base_stat>"')
 def stat_response(base_stat):
-    response = best_stat.best_champ_for_stat(base_stat)
+    response = best_champ_for_stat(base_stat)
     return response
     
-@then('the response status code is 200') 
+@then('the response status code is 200')
 def status_code_check(stat_response):
     assert stat_response.response_code == 200
 

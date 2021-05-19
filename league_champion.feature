@@ -9,7 +9,7 @@ Feature: League Champion Base State Sorted List
     And the champion is "<champion>"
 
     Examples: Champions
-      | base_stat           | champion         |
-      | armor               | Braum            |
-      | movespeed           | MasterYi         |
-      | hp                  | Tryndamere       |
+      | base_stat           | champion              |
+      | armor               | Braum                 |
+      | movespeed           | MasterYi              |
+      | hp                  | Tryndamere            |
