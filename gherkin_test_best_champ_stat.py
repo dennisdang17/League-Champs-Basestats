@@ -1,6 +1,7 @@
 from best_champ_stat import best_champ_for_stat
-from pathlib import Path
 from pytest_bdd import scenarios, when, then
+
+import pathlib
 import pytest
 
 scenarios(pathlib.Path().absolute() +"/feature/league.feature")
