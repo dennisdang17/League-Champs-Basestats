@@ -29,7 +29,8 @@ jobs:
       run: |
         echo "$REGION" 
         python -m pip install --upgrade pip
-        pip install pytest pytest-mock pytest_bdd
+        pip uninstall itsdangerous
+        pip install pytest pytest-mock pytest_bdd itsdangerous
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       
     - shell: bash
@@ -38,7 +39,7 @@ jobs:
         REGION: ${{ secrets.REGION }}
       run: |
         echo "$REGION"
-        
+
     - name: Test with Pytest
       working-directory: ./
       env:
