@@ -47,7 +47,6 @@ jobs:
         REGION: ${{ secrets.REGION }}
       run: |
         pytest
-        pytest gherkin_test_best_champ_stat.py
         
     - name: Docker build and push to dev
       id: build-image
