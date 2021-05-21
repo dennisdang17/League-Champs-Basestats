@@ -29,7 +29,7 @@ jobs:
 
     - name: Install test dependencies
       run: |
-        echo $REGION 
+        echo "$REGION" 
         python -m pip install --upgrade pip
         pip install pytest pytest-mock pytest_bdd
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
