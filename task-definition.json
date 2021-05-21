@@ -29,10 +29,18 @@
           {
             "name": "ENV",
             "value": "dev"
+          },
+          {
+            "name": "REGION",
+            "value": "na1"
+          },
+          {
+            "name": "RIOT_TOKEN",
+            "value": "RGAPI-0db5364a-d54d-414b-9caa-d41427a249de"
           }
         ],
         "resourceRequirements": null,
-        "ulimits": [],
+        "ulimits": null,
         "dnsServers": null,
         "mountPoints": [],
         "workingDirectory": null,
@@ -42,7 +50,7 @@
         "memoryReservation": 128,
         "volumesFrom": [],
         "stopTimeout": 30,
-        "image": "178027395537.dkr.ecr.us-west-2.amazonaws.com/dev-dqdang2",
+        "image": "178027395537.dkr.ecr.us-west-2.amazonaws.com/dev-dqdang2:1938772f526073772ec1bac894546d9ff5206f50",
         "startTimeout": 30,
         "firelensConfiguration": null,
         "dependsOn": null,
@@ -69,7 +77,7 @@
       "EC2",
       "FARGATE"
     ],
-    "taskDefinitionArn": "arn:aws:ecs:us-west-2:178027395537:task-definition/dev-dqdang2:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-west-2:178027395537:task-definition/dev-dqdang2:4",
     "family": "dev-dqdang2",
     "requiresAttributes": [
       {
@@ -139,7 +147,7 @@
     ],
     "networkMode": "awsvpc",
     "cpu": "256",
-    "revision": 3,
+    "revision": 4,
     "status": "ACTIVE",
     "inferenceAccelerators": null,
     "proxyConfiguration": null,
