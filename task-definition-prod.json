@@ -1,6 +1,6 @@
 {
     "ipcMode": null,
-    "executionRoleArn": "arn:aws:iam::178027395537:role/dev-dqdang2-exec",
+    "executionRoleArn": "arn:aws:iam::178027395537:role/prod-dqdang2-exec",
     "containerDefinitions": [
       {
         "dnsSearchDomains": null,
@@ -9,7 +9,7 @@
           "logDriver": "awslogs",
           "secretOptions": null,
           "options": {
-            "awslogs-group": "dev-dqdang2",
+            "awslogs-group": "prod-dqdang2",
             "awslogs-region": "us-west-2",
             "awslogs-stream-prefix": "dqdang2"
           }
@@ -25,12 +25,7 @@
         "command": null,
         "linuxParameters": null,
         "cpu": 256,
-        "environment": [
-          {
-            "name": "ENV",
-            "value": "dev"
-          }
-        ],
+        "environment": [],
         "resourceRequirements": null,
         "ulimits": [],
         "dnsServers": null,
@@ -42,7 +37,7 @@
         "memoryReservation": 128,
         "volumesFrom": [],
         "stopTimeout": 30,
-        "image": "178027395537.dkr.ecr.us-west-2.amazonaws.com/dev-dqdang2",
+        "image": "178027395537.dkr.ecr.us-west-2.amazonaws.com/prod-dqdang2",
         "startTimeout": 30,
         "firelensConfiguration": null,
         "dependsOn": null,
@@ -59,18 +54,18 @@
         "dockerLabels": null,
         "systemControls": null,
         "privileged": null,
-        "name": "dev-dqdang2"
+        "name": "prod-dqdang2"
       }
     ],
     "placementConstraints": [],
     "memory": "512",
-    "taskRoleArn": "arn:aws:iam::178027395537:role/dev-dqdang2-task",
+    "taskRoleArn": "arn:aws:iam::178027395537:role/prod-dqdang2-task",
     "compatibilities": [
       "EC2",
       "FARGATE"
     ],
-    "taskDefinitionArn": "arn:aws:ecs:us-west-2:178027395537:task-definition/dev-dqdang2:1",
-    "family": "dev-dqdang2",
+    "taskDefinitionArn": "arn:aws:ecs:us-west-2:178027395537:task-definition/prod-dqdang2:1",
+    "family": "prod-dqdang2",
     "requiresAttributes": [
       {
         "targetId": null,
@@ -139,7 +134,7 @@
     ],
     "networkMode": "awsvpc",
     "cpu": "256",
-    "revision": 3,
+    "revision": 1,
     "status": "ACTIVE",
     "inferenceAccelerators": null,
     "proxyConfiguration": null,
