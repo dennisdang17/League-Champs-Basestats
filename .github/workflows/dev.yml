@@ -19,6 +19,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
         aws-region: us-west-2
 
     - name: Login to Amazon ECR
@@ -26,6 +27,9 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: Install test dependencies
+      env:
+        RIOT_TOKEN: ${{ secrets.RIOT_TOKEN }}
+        REGION: ${{ secrets.REGION }}
       run: |
         python -m pip install --upgrade pip
         pip install pytest pytest-mock pytest_bdd
