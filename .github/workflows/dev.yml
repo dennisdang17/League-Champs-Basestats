@@ -37,8 +37,8 @@ jobs:
         RIOT_TOKEN: ${{ secrets.RIOT_TOKEN }}
         REGION: ${{ secrets.REGION }}
       run: |
-      echo "$REGION"
-
+        echo "$REGION"
+        
     - name: Test with Pytest
       working-directory: ./
       env:
