@@ -2,7 +2,7 @@ from best_champ_stat import best_champ_for_stat
 from pytest_bdd import scenarios, when, then
 import pytest
 
-scenarios('../league_champion.feature')
+scenarios('../feature/league_champion.feature')
 
 @pytest.fixture
 @when('my API is queried with "<base_stat>"')
