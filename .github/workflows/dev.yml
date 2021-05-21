@@ -81,7 +81,7 @@ jobs:
       id: build-image-prod
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: dev-dqdang2
+        ECR_REPOSITORY: prod-dqdang2
         IMAGE_TAG: ${{ github.sha }}
         
       run: |
@@ -94,13 +94,13 @@ jobs:
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         task-definition: task-definition-prod.json
-        container-name: dev-dqdang2
+        container-name: prod-dqdang2
         image: ${{ steps.build-image-prod.outputs.image }}
 
     - name: Deploy Amazon ECS task definition prod
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def-prod.outputs.task-definition }}
-        service: dev-dqdang2
-        cluster: dev-dqdang2
+        service: prod-dqdang2
+        cluster: prod-dqdang2
         wait-for-service-stability: true
