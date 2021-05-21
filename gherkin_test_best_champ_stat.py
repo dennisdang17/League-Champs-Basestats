@@ -1,10 +1,11 @@
 from best_champ_stat import best_champ_for_stat
 from pytest_bdd import scenarios, when, then
-
-import pathlib
 import pytest
+import os
 
-scenarios(pathlib.Path().absolute() +"/feature/league.feature")
+path = str(os.path.dirname(os.path.abspath(__file__)))
+
+scenarios(path+'/league_champion.feature')
 
 @pytest.fixture
 @when('my API is queried with "<base_stat>"')
