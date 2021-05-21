@@ -20,8 +20,6 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-west-2
-        RIOT_TOKEN: ${{ secrets.RIOT_TOKEN }}
-        REGION: ${{ secrets.REGION }}
 
     - name: Login to Amazon ECR
       id: login-ecr
@@ -34,10 +32,19 @@ jobs:
         pip install pytest pytest-mock pytest_bdd
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       
+    - shell: bash
+      env:
+        RIOT_TOKEN: ${{ secrets.RIOT_TOKEN }}
+        REGION: ${{ secrets.REGION }}
+      run: |
+      echo "$REGION"
+
     - name: Test with Pytest
       working-directory: ./
+      env:
+        RIOT_TOKEN: ${{ secrets.RIOT_TOKEN }}
+        REGION: ${{ secrets.REGION }}
       run: |
-        echo $REGION
         pytest
         
     - name: Docker build and push to dev
