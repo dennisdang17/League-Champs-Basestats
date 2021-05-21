@@ -54,8 +54,10 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: dev-dqdang2
         IMAGE_TAG: ${{ github.sha }}
+        RIOT_TOKEN: ${{ secrets.RIOT_TOKEN }}
+        REGION: ${{ secrets.REGION }}
       run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker build --build-arg RIOT_TOKEN=${{ secrets.RIOT_TOKEN }} --build-arg REGION=${{ secrets.REGION }} -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
@@ -81,6 +83,7 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: dev-dqdang2
         IMAGE_TAG: ${{ github.sha }}
+        
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
