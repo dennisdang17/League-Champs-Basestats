@@ -49,10 +49,10 @@ jobs:
         pytest
       
     - name: Functional Test with pytest
-        working-directory: ./
-        env:
-          RIOT_TOKEN: ${{ secrets.RIOT_TOKEN }}
-          REGION: ${{ secrets.REGION }}
+      working-directory: ./
+      env:
+        RIOT_TOKEN: ${{ secrets.RIOT_TOKEN }}
+        REGION: ${{ secrets.REGION }}
       run: |
         pytest /gherkin_test_best_champ_stat.py
       
